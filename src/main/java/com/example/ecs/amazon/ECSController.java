@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/ecs/")
@@ -24,7 +26,7 @@ public class ECSController {
 
     @GetMapping("orders")
     public List<Order> getOrdersList() {
-        return ordersList;
+        return ordersList.stream().sorted(Comparator.comparing(Order::getPrice)).collect(Collectors.toList());
     }
 
 

@@ -10,13 +10,14 @@
 	</parent>
 	<groupId>com.example.ecs</groupId>
 	<artifactId>amazon-ecs-software</artifactId>
-	<version>1.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>amazon-ecs-software</name>
 	<description>Demo project for Spring Boot and AWS ECS</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -38,9 +39,11 @@
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
 		<finalName>order-service</finalName>
