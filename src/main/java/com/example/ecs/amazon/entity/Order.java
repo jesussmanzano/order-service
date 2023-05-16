@@ -10,5 +10,8 @@ import lombok.NoArgsConstructor;
 public class Order {
     private Long id;
     private String name;
-    private double amount;
+    private double price;
+
+
+
 }
