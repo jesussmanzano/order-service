@@ -2,6 +2,7 @@ version: 0.2
 
 phases:
   pre_build:
+    - echo ====================STARTING PRE_BUILD PHASE=============================
     - mvn clean install
     - echo Logging in to Amazon ECR
     - aws --version
