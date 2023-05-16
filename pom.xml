@@ -14,7 +14,7 @@
 	<name>amazon-ecs-software</name>
 	<description>Demo project for Spring Boot and AWS ECS</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 
