@@ -1,0 +1,3 @@
+com\example\ecs\amazon\ECSController.class
+com\example\ecs\amazon\entity\Order.class
+com\example\ecs\amazon\AmazonEcsSoftwareApplication.class

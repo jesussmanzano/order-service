@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.7-SNAPSHOT</version>
+		<version>2.7.12-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.ecs</groupId>
@@ -14,7 +14,7 @@
 	<name>amazon-ecs-software</name>
 	<description>Demo project for Spring Boot and AWS ECS</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 
@@ -25,9 +25,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.0.6</version>
 		</dependency>
 
 		<dependency>
