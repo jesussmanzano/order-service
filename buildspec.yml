@@ -19,15 +19,15 @@ phases:
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG
 
-    post_build:
-      commands:
-        - echo Build completed on 'date'
-        - echo Pushing the Docker images...
-        - docker push $REPOSITORY_URI:latest
-        - docker push $REPOSITORY_URI:$IMAGE_TAG
-        - Writing image definitions file...
-        - printf '[{"name":"order-service","image_uri":"%s"]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-        - cat imagedefinitions.json
+  post_build:
+    commands:
+      - echo Build completed on 'date'
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - Writing image definitions file...
+      - printf '[{"name":"order-service","image_uri":"%s"]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json
 
 
 artifacts:
