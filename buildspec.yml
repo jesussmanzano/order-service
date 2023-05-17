@@ -6,11 +6,15 @@ phases:
     commands:
       - echo ===========================VERIFYING DOCKER================================
       - docker info
-      - echo ====================STARTING PRE_BUILD PHASE=============================
+      - echo ====================STARTING PRE_BUILD PHASE===============================
+      - echo ===========================================================================
+      - echo =====================Environment variables=================================
+      - echo $AWS_DEFAULT_REGION
+      - echo =====================Environment variables=================================
       - mvn clean install
       - echo Logging in to Amazon ECR
       - aws --version
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION
+      - aws ecr get-login-password --region us-east-2
       #- aws ecr get-login-password --region us-east-2
       #- $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION)
       - REPOSITORY_URI=476918805121.dkr.ecr.us-east-2.amazonaws.com/ecr-repository
