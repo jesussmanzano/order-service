@@ -5,7 +5,8 @@ phases:
   pre_build:
     commands:
       - echo =========================== ENVIRONMENT VARIABLES================================
-      - $IMAGE_TAG=latest
+      - IMAGE_TAG=latest
+      - echo $IMAGE_TAG
       - echo ====================STARTING PRE_BUILD PHASE===============================
       - echo ===========================================================================
       - echo =====================Environment variables=================================
