@@ -17,7 +17,7 @@ phases:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       #- aws ecr get-login-password --region us-east-2
       #- $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION)
-      - REPOSITORY_URI=476918805121.dkr.ecr.us-east-2.amazonaws.com/ecr-repository
+      - REPOSITORY_URI=476918805121.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/ecr-repository
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F"." '{print $2}')
 
@@ -27,7 +27,7 @@ phases:
       - echo Build started on 'date'
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
-      - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:latest
+      - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:$IMAGE_TAG
 
   post_build:
     commands:
@@ -37,7 +37,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"order-service","image_uri":"%s"]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - printf '[{"name":"order-service","image_uri":"%s"]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 
 
