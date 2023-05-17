@@ -4,8 +4,8 @@ phases:
 
   pre_build:
     commands:
-      - echo ===========================VERIFYING DOCKER================================
-      - docker info
+      - echo =========================== ENVIRONMENT VARIABLES================================
+      - $IMAGE_TAG=latest
       - echo ====================STARTING PRE_BUILD PHASE===============================
       - echo ===========================================================================
       - echo =====================Environment variables=================================
