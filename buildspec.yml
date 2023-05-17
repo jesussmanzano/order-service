@@ -36,7 +36,7 @@ phases:
       - docker image ls
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - Writing image definitions file...
+      - echo Writing image definitions file...
       - printf '[{"name":"order-service","image_uri":"%s"]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 
