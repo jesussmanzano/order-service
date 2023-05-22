@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-order-service-ks
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+        app: springboot-order-service-ks
+
+  template:
+      metadata:
+        labels:
+          app: springboot-order-service-ks
+
+      spec:
+        containers:
+          - name: springboot-order-service-ks
+            image: springboot-order-service-ks:1.0 #Docker image
+            imagePullPolicy: IfNotPresent
+            ports: #the port that the container is running on the cluster
+              - containerPort: 8080
